@@ -18,7 +18,6 @@ public class CameraScript : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (Player != null)
