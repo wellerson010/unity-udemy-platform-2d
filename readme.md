@@ -177,9 +177,15 @@ Fonte: [Gyanendu Shekhar's Blog](http://gyanendushekhar.com/2017/06/29/understan
 
 Returna verdadeiro enquanto o botão estiver pressionado. Como por exemplo para atirar.
 
-#### GetButtonDown
+#### GetButtonDown / GetKeyDown
 
 Deve ser chamado no método **Update**, pois ele é resetado a cada frame (se torna false no início de novo frame). Por isso, ele deve ser usado para ações que o pressionar do botão não seja apropriado, como a ação de pular. 
+
+**GetKeyDown** aceita um **KeyCode** ou um nome representando a tecla.
+
+#### GetKey
+
+Retorna verdadeiro se a tecla passada for pressionada. Aceita um **KeyCode** ou um nome representando a tecla.
 
 
 ### AddForce
@@ -271,3 +277,15 @@ void Awake () {
 Edit -> Project Settings -> Physics2D
 
 Define as layers que podem se colidir ou não.
+
+### Canvas - Render Mode
+
+* Screen Space Camera - A UI segue a câmera. Nesse modo, as configurações da câmera alteram a UI. Qualquer movimentação de câmera, gera uma renderização da UI. Quanto mais elementos na UI, mais processamento é necessário. OBS: Lembre-se de puxar a câmera pro campo **Render Camera**.
+
+* Screen Space Overlay - Elementos UI são renderizados no topo da cena. Se a tela é redimensionada, o canvas irá se adaptar.
+
+* World Space - A UI se comportará como qualquer outro objeto da cena. Isso é bom para UIs que fazem parte do mundo, conhecidas como **diegetic interface**, presente em jogos como **Dead Space**.
+
+### Resolvendo bug de grudar na parede ###
+
+Basta criar um **Physic Material 2D** com fricção **0** e adicionar no colisor da parede.
